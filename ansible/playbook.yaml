@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  roles:
+    - ansible-docker-compose.docker
+    - ansible-docker-compose.docker-compose
+  vars:
+    docker_compose_version: 1.21.0
+    docker_compose_pip_version: pip==9.0.3
+
