@@ -1,4 +1,4 @@
-version: '2'
+version: '2.1'
 services:
   mysql:
     container_name: mysql
@@ -30,10 +30,11 @@ services:
       interval: 10s
       retries: 60
 
-  nodejs:
-    container_name: modejs
-    image: node
-    restart: always
+  application:
+    
+    build:
+      context: application
+      dockerfile: Dockerfile
     hostname: nodejs
     links:
       - memcached
@@ -51,7 +52,7 @@ services:
     restart: always
     hostname: nginx
     links:
-      - nodejs
+      - application
     ports:
       - 80
     healthcheck:

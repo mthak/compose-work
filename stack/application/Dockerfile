@@ -5,4 +5,3 @@ RUN npm install
 COPY src src
 EXPOSE 8080
 Entrypoint [ "npm", "start" ]
-
